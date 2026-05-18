@@ -1,19 +1,78 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Luis JL - Developer</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Luis JL</title>
+  <meta name="description" content="Página no encontrada">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="styles.fe56fca8f6199487a7b1.css"></head>
-<body class="mat-typography">
-  <app-root></app-root>
-<script src="runtime-es2015.052c20bc343bf6193602.js" type="module"></script><script src="runtime-es5.052c20bc343bf6193602.js" nomodule defer></script><script src="polyfills-es5.d5ef991934dc765c95c5.js" nomodule defer></script><script src="polyfills-es2015.d0b77c1d5f5e22f840ea.js" type="module"></script><script src="main-es2015.4193be54f67627f557f4.js" type="module"></script><script src="main-es5.4193be54f67627f557f4.js" nomodule defer></script></body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0a0f;
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+    .container { max-width: 500px; }
+    .error-code {
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(139, 92, 246, 0.35);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="error-code">404</div>
+    <h1>Página no encontrada</h1>
+    <p>Parece que te has perdido. El enlace que buscas no existe o ha sido movido.</p>
+    <a href="/" class="btn">
+      <i class="fa-solid fa-house"></i>
+      Volver al inicio
+    </a>
+  </div>
+</body>
 </html>
