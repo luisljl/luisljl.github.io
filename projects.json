@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "title": "PayosWars — Ragdoll Battle Arena",
+    "description": "Videojuego de batallas con físicas ragdoll en tiempo real. Personaliza luchadores con distintas skins y armas, enfréntate en combates Free Battle o compite en el modo torneo. Incluye sistema de repeticiones guardadas y físicas realistas con Matter.js.",
+    "media": [
+    { "type": "image", "url": "./assets/img/projects/payoswars/logo.png" },
+      { "type": "image", "url": "./assets/img/projects/payoswars/payoswars1.png" },
+      { "type": "image", "url": "./assets/img/projects/payoswars/payoswars2.png" },
+      { "type": "image", "url": "./assets/img/projects/payoswars/payoswars3.png" }
+    ],
+    "tags": ["JavaScript", "Canvas", "Matter.js", "Game Development", "Vite"],
+    "links": [
+      { "type": "web", "url": "https://payoswars.luisjl.com" },
+      { "type": "github", "url": "https://github.com/luisjl/payoswars" }
+    ]
+  }
+]

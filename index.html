@@ -593,6 +593,214 @@
       background: linear-gradient(135deg, var(--bg-elevated), var(--bg-card));
     }
 
+    /* ============================================
+       PROJECT MEDIA GALLERY
+    ============================================ */
+    .project-media {
+      display: grid;
+      gap: 4px;
+      background: var(--bg-elevated);
+    }
+    .project-media.single {
+      grid-template-columns: 1fr;
+    }
+    .project-media:not(.single) {
+      grid-template-columns: 1fr 1fr;
+    }
+    .project-media:not(.single) .media-item:first-child {
+      grid-column: 1 / -1;
+    }
+    .project-media:not(.single):has(.media-item:nth-child(2):last-child) {
+      grid-template-columns: 1fr;
+    }
+
+    .media-item.logo {
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .media-item.logo img {
+      object-fit: contain;
+      max-width: 70%;
+      max-height: 80%;
+    }
+
+    .media-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-elevated);
+    }
+    .project-media.single .media-item {
+      height: 200px;
+    }
+    .media-item:not(.logo) img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .media-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .media-item .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+      color: white;
+      font-size: 2.2rem;
+      transition: var(--transition);
+    }
+    .media-item .play-overlay i {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      transition: var(--transition);
+    }
+    .media-item:hover .play-overlay i {
+      background: rgba(255, 0, 0, 0.7);
+      transform: scale(1.1);
+    }
+    .media-item .media-count {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ============================================
+       LIGHTBOX
+    ============================================ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 3001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: rotate(90deg);
+    }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 3001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-nav:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .lightbox-nav.prev { left: 20px; }
+    .lightbox-nav.next { right: 20px; }
+
+    .lightbox-body {
+      position: relative;
+      max-width: 92vw;
+      max-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-body img {
+      max-width: 92vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      user-select: none;
+    }
+    .lightbox-body .lb-video-wrapper {
+      width: 80vw;
+      max-width: 1000px;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .lightbox-body .lb-video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .lightbox-counter {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      z-index: 3001;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 6px 16px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
     .project-tags {
       display: flex;
       flex-wrap: wrap;
@@ -624,6 +832,7 @@
       line-height: 1.7;
       display: -webkit-box;
       -webkit-line-clamp: 3;
+      line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
       margin-bottom: 20px;
@@ -1151,7 +1360,22 @@
     // =============================================
     // PROJECTS DATA (embedded to avoid CORS issues locally)
     // =============================================
-    const projectsData = [];
+    const projectsData = [
+      {
+        "title": "PayosWars — Ragdoll Battle Arena",
+        "description": "Videojuego de batallas con físicas ragdoll en tiempo real. Personaliza luchadores con distintas skins y armas, enfréntate en combates Free Battle o compite en el modo torneo. Incluye sistema de repeticiones guardadas y físicas realistas con Matter.js.",
+        "media": [
+          { "type": "image", "url": "./assets/img/projects/payoswars/logo.png" },
+          { "type": "image", "url": "./assets/img/projects/payoswars/payoswars1.png" },
+          { "type": "image", "url": "./assets/img/projects/payoswars/payoswars2.png" },
+          { "type": "image", "url": "./assets/img/projects/payoswars/payoswars3.png" }
+        ],
+        "tags": ["JavaScript", "Canvas", "Matter.js", "Game Development", "Vite"],
+        "links": [
+          { "type": "web", "url": "https://payoswars.luisjl.com" },
+        ]
+      }
+    ];
 
     function loadProjects() {
       const grid = document.getElementById('projectsGrid');
@@ -1170,12 +1394,48 @@
         const card = document.createElement('article');
         card.className = 'project-card';
 
-        // Image
-        let imgHtml = '';
-        if (proj.image) {
-          imgHtml = `<img src="${proj.image}" alt="${proj.title}" loading="lazy">`;
+        // --- Media gallery ---
+        let mediaArray = proj.media || [];
+        // Backward compat: if no media but has image, convert it
+        if (mediaArray.length === 0 && proj.image) {
+          mediaArray = [{ type: 'image', url: proj.image }];
+        }
+
+        let mediaHtml = '';
+        if (mediaArray.length > 0) {
+          const singleClass = mediaArray.length === 1 ? 'single' : '';
+          let itemsHtml = '';
+          // Show max 3: logo (contain) + 2 media thumbnails
+          const showCount = Math.min(mediaArray.length, 3);
+
+          for (let i = 0; i < showCount; i++) {
+            const m = mediaArray[i];
+            const isLogo = i === 0;
+            let inner = '';
+            if (m.type === 'youtube') {
+              const thumb = m.thumbnail || `https://img.youtube.com/vi/${m.videoId}/mqdefault.jpg`;
+              inner = `
+                <img src="${thumb}" alt="" loading="lazy">
+                <div class="play-overlay"><i class="fa-brands fa-youtube"></i></div>`;
+            } else {
+              inner = `<img src="${m.url}" alt="" loading="lazy">`;
+            }
+            // Show "+N" badge on the last visible item if there are more
+            let badge = '';
+            if (i === showCount - 1 && mediaArray.length > showCount) {
+              const remaining = mediaArray.length - showCount;
+              badge = `<div class="media-count"><i class="fa-solid fa-images"></i> +${remaining}</div>`;
+            }
+            itemsHtml += `
+              <div class="media-item${isLogo ? ' logo' : ''}" data-project="${proj.title}" data-index="${i}">
+                ${inner}
+                ${badge}
+              </div>`;
+          }
+
+          mediaHtml = `<div class="project-media ${singleClass}">${itemsHtml}</div>`;
         } else {
-          imgHtml = `<div class="img-placeholder"><i class="fa-solid fa-code"></i></div>`;
+          mediaHtml = `<div class="project-image"><div class="img-placeholder"><i class="fa-solid fa-code"></i></div></div>`;
         }
 
         // Tags
@@ -1187,15 +1447,14 @@
         const linksHtml = (proj.links || [])
           .map(link => {
             const cfg = linkConfig[link.type] || { icon: 'fa-solid fa-link', label: link.type };
-            const typeClass = link.type;
-            return `<a href="${link.url}" target="_blank" rel="noopener" class="project-link ${typeClass}">
+            return `<a href="${link.url}" target="_blank" rel="noopener" class="project-link ${link.type}">
               <i class="${cfg.icon}"></i> ${cfg.label}
             </a>`;
           })
           .join('');
 
         card.innerHTML = `
-          <div class="project-image">${imgHtml}</div>
+          ${mediaHtml}
           <div class="project-tags">${tagsHtml}</div>
           <div class="project-body">
             <h3 class="project-title">${proj.title}</h3>
@@ -1203,10 +1462,114 @@
             <div class="project-links">${linksHtml}</div>
           </div>
         `;
+
+        // Click handler for media items -> open lightbox
+        const mediaItems = card.querySelectorAll('.media-item');
+        mediaItems.forEach(el => {
+          el.addEventListener('click', () => {
+            const idx = parseInt(el.dataset.index);
+            openLightbox(mediaArray, idx);
+          });
+        });
+
         grid.appendChild(card);
       });
     }
 
+    // =============================================
+    // LIGHTBOX
+    // =============================================
+    let lbMedia = [];
+    let lbIndex = 0;
+
+    function openLightbox(media, index) {
+      lbMedia = media;
+      lbIndex = index;
+      renderLightbox();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      // Stop any playing YouTube video
+      const iframe = document.querySelector('.lightbox-body iframe');
+      if (iframe) {
+        const src = iframe.src;
+        iframe.src = '';
+        iframe.src = src;
+      }
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function prevMedia() {
+      if (lbMedia.length === 0) return;
+      lbIndex = (lbIndex - 1 + lbMedia.length) % lbMedia.length;
+      renderLightbox();
+    }
+
+    function nextMedia() {
+      if (lbMedia.length === 0) return;
+      lbIndex = (lbIndex + 1) % lbMedia.length;
+      renderLightbox();
+    }
+
+    function renderLightbox() {
+      const body = document.getElementById('lb-body');
+      const counter = document.getElementById('lb-counter');
+      const item = lbMedia[lbIndex];
+
+      counter.textContent = `${lbIndex + 1} / ${lbMedia.length}`;
+
+      if (item.type === 'youtube') {
+        const videoId = item.videoId || extractYoutubeId(item.url);
+        body.innerHTML = `
+          <div class="lb-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>`;
+      } else {
+        body.innerHTML = `<img src="${item.url}" alt="">`;
+      }
+
+      // Show/hide nav buttons
+      document.getElementById('lb-prev').style.display = lbMedia.length > 1 ? 'flex' : 'none';
+      document.getElementById('lb-next').style.display = lbMedia.length > 1 ? 'flex' : 'none';
+    }
+
+    function extractYoutubeId(url) {
+      const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+      return match ? match[1] : '';
+    }
+
+    // Lightbox HTML (appended to body)
+    document.body.insertAdjacentHTML('beforeend', `
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lb-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lightbox-nav prev" id="lb-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="lightbox-nav next" id="lb-next" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="lightbox-body" id="lb-body"></div>
+        <div class="lightbox-counter" id="lb-counter"></div>
+      </div>
+    `);
+
+    // Lightbox event listeners
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lb-prev').addEventListener('click', prevMedia);
+    document.getElementById('lb-next').addEventListener('click', nextMedia);
+    document.addEventListener('keydown', (e) => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevMedia();
+      if (e.key === 'ArrowRight') nextMedia();
+    });
+
+    // =============================================
+    // INIT
+    // =============================================
     loadProjects();
   </script>
 </body>
