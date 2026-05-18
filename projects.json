@@ -13,5 +13,19 @@
       { "type": "web", "url": "https://payoswars.luisjl.com" },
       { "type": "github", "url": "https://github.com/luisjl/payoswars" }
     ]
+  },
+  {
+    "title": "Bingo JL",
+    "description": "Juego de bingo clásico con tablero 1-90, sistema de bolas aleatorias, modo automático, voz en español y marcado visual. Perfecto para reuniones familiares y fiestas. Desarrollado con HTML, CSS y JavaScript vanilla.",
+    "media": [
+      { "type": "image", "url": "./assets/img/projects/bingo/logo.svg" },
+      { "type": "image", "url": "./assets/img/projects/bingo/captura1.png" },
+      { "type": "image", "url": "./assets/img/projects/bingo/captura2.png" },
+      { "type": "image", "url": "./assets/img/projects/bingo/captura3.png" }
+    ],
+    "tags": ["JavaScript", "HTML5", "CSS3", "Web Audio", "Game"],
+    "links": [
+      { "type": "web", "url": "https://bingo.luisjl.com" }
+    ]
   }
 ]
