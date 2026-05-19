@@ -27,5 +27,19 @@
     "links": [
       { "type": "web", "url": "https://bingo.luisjl.com" }
     ]
+  },
+  {
+    "title": "Sumo Balls Arena",
+    "description": "Arena de sumo autónoma con IA donde puedes crear partidas y torneos en tiempo real. Personaliza luchadores con distintas habilidades, estratégias y estilos, y revive las mejores peleas con el sistema de replays.",
+    "media": [
+      { "type": "image", "url": "./assets/img/projects/sumo-balls/logo.svg" },
+      { "type": "image", "url": "./assets/img/projects/sumo-balls/captura1.png" },
+      { "type": "image", "url": "./assets/img/projects/sumo-balls/captura2.png" },
+      { "type": "image", "url": "./assets/img/projects/sumo-balls/captura3.png" }
+    ],
+    "tags": ["JavaScript", "Vite", "AI", "Game"],
+    "links": [
+      { "type": "web", "url": "https://sumo-balls.luisjl.com" }
+    ]
   }
 ]
