@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3498db"/>
+      <stop offset="100%" stop-color="#9b59b6"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f1c40f"/>
+      <stop offset="100%" stop-color="#e67e22"/>
+    </linearGradient>
+  </defs>
+  <!-- Fondo -->
+  <rect width="400" height="200" rx="20" fill="#080818"/>
+  <!-- Peonza decorativa -->
+  <circle cx="85" cy="100" r="50" fill="none" stroke="url(#g1)" stroke-width="3" opacity="0.3"/>
+  <circle cx="85" cy="100" r="35" fill="none" stroke="#3498db" stroke-width="2" opacity="0.5"/>
+  <circle cx="85" cy="100" r="18" fill="#3498db" opacity="0.7"/>
+  <circle cx="85" cy="100" r="7" fill="#ffffff" opacity="0.8"/>
+  <!-- Líneas de giro -->
+  <line x1="85" y1="40" x2="85" y2="60" stroke="#f1c40f" stroke-width="2" opacity="0.6"/>
+  <line x1="85" y1="140" x2="85" y2="160" stroke="#f1c40f" stroke-width="2" opacity="0.6"/>
+  <line x1="35" y1="100" x2="55" y2="100" stroke="#f1c40f" stroke-width="2" opacity="0.6"/>
+  <line x1="115" y1="100" x2="135" y2="100" stroke="#f1c40f" stroke-width="2" opacity="0.6"/>
+  <!-- Nombre -->
+  <text x="160" y="95" font-family="Arial Black, Impact, sans-serif" font-size="42" font-weight="bold" fill="#ffffff" letter-spacing="2">VORTEX</text>
+  <text x="160" y="135" font-family="Arial Black, Impact, sans-serif" font-size="42" font-weight="bold" fill="url(#g2)" letter-spacing="2">ARENA</text>
+  <!-- Subtítulo -->
+  <text x="160" y="165" font-family="Arial, sans-serif" font-size="12" fill="#5a5a7a" letter-spacing="4">TOP BATTLES</text>
+</svg>
