@@ -69,6 +69,20 @@
         "links": [
           { "type": "web", "url": "https://peonzas.luisjl.com" }
         ]
+      },
+      {
+        "title": "Cosmo Players",
+        "description": "Suika game de planetas multijugador. Fusiona planetas iguales para crear cuerpos celestes más grandes mientras compites contra otros jugadores en tiempo real. Estrategia y física gravitacional en una experiencia cósmica única.",
+        "media": [
+          { "type": "image", "url": "./assets/img/projects/cosmo-players/logo.svg" },
+          { "type": "image", "url": "./assets/img/projects/cosmo-players/suika1.png" },
+          { "type": "image", "url": "./assets/img/projects/cosmo-players/suika2.png" },
+          { "type": "image", "url": "./assets/img/projects/cosmo-players/suika3.png" }
+        ],
+        "tags": ["JavaScript", "Multiplayer", "Suika", "Canvas", "Game", "Vite"],
+        "links": [
+          { "type": "web", "url": "https://cosmo-players.luisjl.com" }
+        ]
       }
 ]
 

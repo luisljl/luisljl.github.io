@@ -438,9 +438,12 @@
       border: 3px solid rgba(139, 92, 246, 0.3);
       box-shadow: var(--shadow-glow);
     }
-    .hero-image img {
+    .hero-image img,
+    .hero-image svg {
       width: 100%;
       height: 100%;
+    }
+    .hero-image img {
       object-fit: cover;
     }
     .hero-image-ring {
@@ -1119,7 +1122,18 @@
         <div class="hero-image">
           <div class="hero-image-ring"></div>
           <div class="hero-image-ring-2"></div>
-          <img src="assets/img/me.jpg" alt="Luis JL" loading="lazy">
+          <svg class="hero-avatar-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="58" fill="url(#avatarGrad)" opacity="0.2"/>
+            <circle cx="60" cy="60" r="46" fill="url(#avatarGrad)" opacity="0.3"/>
+            <path d="M45 40L30 60L45 80" stroke="url(#avatarGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M75 40L90 60L75 80" stroke="url(#avatarGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="avatarGrad" x1="0" y1="0" x2="120" y2="120">
+                <stop offset="0%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
         <div class="float-badge float-badge-1">
           <i class="fa-brands fa-flutter" style="color:#ffffff;"></i> Flutter
@@ -1358,84 +1372,34 @@
     };
 
     // =============================================
-    // PROJECTS DATA (embedded to avoid CORS issues locally)
+    // PROJECTS DATA — se carga desde projects.json
     // =============================================
-    const projectsData = [
-      {
-        "title": "PayosWars — Ragdoll Battle Arena",
-        "description": "Videojuego de batallas con físicas ragdoll en tiempo real. Personaliza luchadores con distintas skins y armas, enfréntate en combates Free Battle o compite en el modo torneo. Incluye sistema de repeticiones guardadas y físicas realistas con Matter.js.",
-        "media": [
-          { "type": "image", "url": "./assets/img/projects/payoswars/logo.png" },
-          { "type": "image", "url": "./assets/img/projects/payoswars/payoswars1.png" },
-          { "type": "image", "url": "./assets/img/projects/payoswars/payoswars2.png" },
-          { "type": "image", "url": "./assets/img/projects/payoswars/payoswars3.png" }
-        ],
-        "tags": ["JavaScript", "Canvas", "Matter.js", "Game Development", "Vite"],
-        "links": [
-          { "type": "web", "url": "https://payoswars.luisjl.com" },
-          { "type": "github", "url": "https://github.com/luisjl/payoswars" }
-        ]
-      },
-      {
-        "title": "Bingo JL",
-        "description": "Juego de bingo clásico con tablero 1-90, sistema de bolas aleatorias, modo automático, voz en español y marcado visual. Perfecto para reuniones familiares y fiestas. Desarrollado con HTML, CSS y JavaScript vanilla.",
-        "media": [
-          { "type": "image", "url": "./assets/img/projects/bingo/logo.svg" },
-          { "type": "image", "url": "./assets/img/projects/bingo/captura1.png" },
-          { "type": "image", "url": "./assets/img/projects/bingo/captura2.png" },
-          { "type": "image", "url": "./assets/img/projects/bingo/captura3.png" }
-        ],
-        "tags": ["JavaScript", "HTML5", "CSS3", "Web Audio", "Game"],
-        "links": [
-          { "type": "web", "url": "https://bingo.luisjl.com" }
-        ]
-      },
-      {
-        "title": "Sumo Balls Arena",
-        "description": "Arena de sumo autónoma con IA donde puedes crear partidas y torneos en tiempo real. Personaliza luchadores con distintas habilidades, stratégias y estilos, y revive las mejores peleas con el sistema de replays.",
-        "media": [
-          { "type": "image", "url": "./assets/img/projects/sumo-balls/logo.svg" },
-          { "type": "image", "url": "./assets/img/projects/sumo-balls/captura1.png" },
-          { "type": "image", "url": "./assets/img/projects/sumo-balls/captura2.png" },
-          { "type": "image", "url": "./assets/img/projects/sumo-balls/captura3.png" }
-        ],
-        "tags": ["JavaScript", "Vite", "AI", "Game"],
-        "links": [
-          { "type": "web", "url": "https://sumo-balls.luisjl.com" }
-        ]
-      },
-      {
-        "title": "Drop Off 2",
-        "description": "Juego single y multijugador donde manejas una bola que cae a través de barras. Muévete horizontalmente para atravesar los huecos y llegar lo más lejos posible. Compite online contra otros jugadores y supera sus puntuaciones.",
-        "media": [
-          { "type": "image", "url": "./assets/img/projects/drop-off-2/logo.svg" },
-          { "type": "image", "url": "./assets/img/projects/drop-off-2/captura1.png" },
-          { "type": "image", "url": "./assets/img/projects/drop-off-2/captura2.png" },
-          { "type": "image", "url": "./assets/img/projects/drop-off-2/captura3.png" }
-        ],
-        "tags": ["Phaser.js", "Canvas", "Multiplayer", "Game", "Vite"],
-        "links": [
-          { "type": "web", "url": "https://drop-off-2.luisjl.com" }
-        ]
-      },
-      {
-        "title": "Vortex Arena",
-        "description": "Juego de peleas de peonzas estilo Beyblade. Lucha con tops personalizables, genera combos y usa poderes especiales para derribar al rival en arenas dinámicas.",
-        "media": [
-          { "type": "image", "url": "./assets/img/projects/vortex-arena/logo.svg" },
-          { "type": "image", "url": "./assets/img/projects/vortex-arena/peonzas1.png" },
-          { "type": "image", "url": "./assets/img/projects/vortex-arena/peonzas2.png" },
-          { "type": "image", "url": "./assets/img/projects/vortex-arena/peonzas3.png" }
-        ],
-        "tags": ["JavaScript", "Game", "Beyblade", "Canvas", "Physics"],
-        "links": [
-          { "type": "web", "url": "https://peonzas.luisjl.com" }
-        ]
-      }
-    ];
+    let projectsData = [];
 
-    function loadProjects() {
+    async function loadProjects() {
       const grid = document.getElementById('projectsGrid');
+
+      // Show loading state
+      grid.innerHTML = `
+        <div class="projects-status">
+          <div class="projects-loading">
+            <div class="spinner"></div>
+            <p>Cargando proyectos...</p>
+          </div>
+        </div>`;
+
+      try {
+        const res = await fetch('projects.json');
+        if (!res.ok) throw new Error('Error al cargar proyectos');
+        projectsData = await res.json();
+      } catch (err) {
+        grid.innerHTML = `
+          <div class="projects-status projects-error">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p>No se pudieron cargar los proyectos.</p>
+          </div>`;
+        return;
+      }
 
       if (!projectsData || projectsData.length === 0) {
         grid.innerHTML = `
