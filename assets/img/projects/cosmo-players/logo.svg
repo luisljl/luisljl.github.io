@@ -1,97 +1,165 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 170">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <!-- COSMO gold gradient -->
-    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%"   stop-color="#fff5a0"/>
-      <stop offset="35%"  stop-color="#ffd700"/>
-      <stop offset="100%" stop-color="#a06800"/>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0719"/>
+      <stop offset="50%" stop-color="#110b24"/>
+      <stop offset="100%" stop-color="#08041a"/>
     </linearGradient>
-    <!-- PLAYERS blue gradient -->
-    <linearGradient id="blue" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%"   stop-color="#a8d8ff"/>
-      <stop offset="100%" stop-color="#3a80cc"/>
+
+    <!-- Planet gradients -->
+    <radialGradient id="planet1" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#ff6b6b"/>
+      <stop offset="60%" stop-color="#e74c3c"/>
+      <stop offset="100%" stop-color="#a93226"/>
+    </radialGradient>
+    <radialGradient id="planet2" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#74b9ff"/>
+      <stop offset="60%" stop-color="#3498db"/>
+      <stop offset="100%" stop-color="#1a5276"/>
+    </radialGradient>
+    <radialGradient id="planet3" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#feca57"/>
+      <stop offset="60%" stop-color="#f39c12"/>
+      <stop offset="100%" stop-color="#b7950b"/>
+    </radialGradient>
+    <radialGradient id="planet4" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#a29bfe"/>
+      <stop offset="60%" stop-color="#6c5ce7"/>
+      <stop offset="100%" stop-color="#4a33b0"/>
+    </radialGradient>
+    <radialGradient id="planet5" cx="0.3" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#55efc4"/>
+      <stop offset="60%" stop-color="#00b894"/>
+      <stop offset="100%" stop-color="#00695c"/>
+    </radialGradient>
+
+    <!-- Text gradients -->
+    <linearGradient id="cosmoText" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff5a0"/>
+      <stop offset="50%" stop-color="#ffd700"/>
+      <stop offset="100%" stop-color="#f0a500"/>
     </linearGradient>
-    <!-- Planet warm gradient -->
-    <radialGradient id="planet" cx="33%" cy="28%" r="68%">
-      <stop offset="0%"   stop-color="#fff5b0"/>
-      <stop offset="45%"  stop-color="#ffd700"/>
-      <stop offset="100%" stop-color="#7a4d00"/>
-    </radialGradient>
-    <!-- Planet halo -->
-    <radialGradient id="phalo" cx="50%" cy="50%" r="50%">
-      <stop offset="0%"   stop-color="#ffd700" stop-opacity="0.30"/>
-      <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
-    </radialGradient>
-    <!-- Text glow -->
-    <filter id="tglow" x="-15%" y="-40%" width="130%" height="180%">
-      <feGaussianBlur stdDeviation="4" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+
+    <linearGradient id="playersText" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#74b9ff"/>
+      <stop offset="100%" stop-color="#a29bfe"/>
+    </linearGradient>
+
+    <!-- Glow filters -->
+    <filter id="glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#ffd700" flood-opacity="0.3"/>
     </filter>
-    <!-- Planet glow -->
-    <filter id="pglow" x="-35%" y="-35%" width="170%" height="170%">
-      <feGaussianBlur stdDeviation="6" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="planetGlow">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#fff" flood-opacity="0.15"/>
     </filter>
+
+    <!-- Bowl/bucket clip path for Suika-style planets -->
+    <clipPath id="bowlClip">
+      <path d="M 156 370 Q 160 420 196 430 Q 256 442 316 430 Q 352 420 356 370 Z"/>
+    </clipPath>
   </defs>
 
-  <!-- Stars background -->
-  <circle cx="15"  cy="12"  r="1.4" fill="white" opacity="0.80"/>
-  <circle cx="38"  cy="5"   r="1.0" fill="white" opacity="0.60"/>
-  <circle cx="75"  cy="18"  r="1.2" fill="white" opacity="0.70"/>
-  <circle cx="150" cy="8"   r="0.9" fill="white" opacity="0.55"/>
-  <circle cx="210" cy="3"   r="1.3" fill="white" opacity="0.75"/>
-  <circle cx="255" cy="14"  r="1.0" fill="white" opacity="0.60"/>
-  <circle cx="190" cy="155" r="1.1" fill="white" opacity="0.55"/>
-  <circle cx="55"  cy="148" r="1.0" fill="white" opacity="0.60"/>
-  <circle cx="100" cy="162" r="0.8" fill="white" opacity="0.45"/>
-  <circle cx="130" cy="8"   r="0.8" fill="white" opacity="0.50"/>
+  <!-- Background rounded rectangle -->
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
 
-  <!-- ═══ Planet (right side) ═══ -->
-  <g transform="translate(358 88)">
-    <!-- Halo -->
-    <circle r="52" fill="url(#phalo)"/>
-    <!-- Ring — back half -->
-    <ellipse rx="58" ry="17" fill="none"
-      stroke="#6844b0" stroke-width="6" opacity="0.50"
-      transform="rotate(-20)"/>
-    <!-- Planet body -->
-    <circle r="30" fill="url(#planet)" filter="url(#pglow)"/>
-    <!-- Atmospheric bands -->
-    <ellipse rx="24" ry="5"  ry="4.5" fill="#b87800" opacity="0.22" transform="translate(0,-7) rotate(-6)"/>
-    <ellipse rx="26" ry="5"         fill="#b87800" opacity="0.18" transform="translate(0, 5)"/>
-    <!-- Ring — front arc -->
-    <path d="M -58 0 Q 0 -14 58 0"
-      fill="none" stroke="#c0a0ff" stroke-width="6" opacity="0.90"
-      stroke-linecap="round"/>
-    <!-- Specular highlight -->
-    <ellipse rx="10" ry="7" fill="white" opacity="0.22"
-      transform="translate(-9,-11) rotate(-25)"/>
+  <!-- Stars decoration -->
+  <circle cx="60" cy="50" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="120" cy="30" r="1" fill="white" opacity="0.4"/>
+  <circle cx="400" cy="60" r="1.5" fill="white" opacity="0.5"/>
+  <circle cx="450" cy="120" r="1" fill="white" opacity="0.3"/>
+  <circle cx="80" cy="150" r="1.2" fill="white" opacity="0.5"/>
+  <circle cx="470" cy="200" r="1" fill="white" opacity="0.4"/>
+  <circle cx="50" cy="280" r="1.3" fill="white" opacity="0.3"/>
+  <circle cx="460" cy="350" r="1" fill="white" opacity="0.3"/>
+  <circle cx="380" cy="50" r="0.8" fill="white" opacity="0.5"/>
+  <circle cx="200" cy="25" r="1.2" fill="white" opacity="0.4"/>
+  <circle cx="300" cy="40" r="0.9" fill="white" opacity="0.5"/>
+  <circle cx="30" cy="400" r="1" fill="white" opacity="0.3"/>
+
+  <!-- Large decorative stars (4-point) -->
+  <path d="M 440 80 L 442 86 L 448 88 L 442 90 L 440 96 L 438 90 L 432 88 L 438 86 Z" fill="white" opacity="0.7"/>
+  <path d="M 90 90 L 91.5 94 L 95.5 95.5 L 91.5 97 L 90 101 L 88.5 97 L 84.5 95.5 L 88.5 94 Z" fill="white" opacity="0.6"/>
+  <path d="M 70 350 L 71 353 L 74 354 L 71 355 L 70 358 L 69 355 L 66 354 L 69 353 Z" fill="white" opacity="0.5"/>
+
+  <!-- Suika-style bowl / container -->
+  <path d="M 146 360 Q 150 430 196 440 Q 256 454 316 440 Q 362 430 366 360" 
+        fill="none" stroke="#2a1a4e" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 146 360 Q 150 430 196 440 Q 256 454 316 440 Q 362 430 366 360" 
+        fill="#1a0e30" opacity="0.6"/>
+
+  <!-- Planets inside the bowl (Suika merging style) -->
+  <g clip-path="url(#bowlClip)">
+    <!-- Bottom row -->
+    <circle cx="200" cy="415" r="26" fill="url(#planet1)" filter="url(#planetGlow)"/>
+    <circle cx="256" cy="420" r="32" fill="url(#planet2)" filter="url(#planetGlow)"/>
+    <circle cx="312" cy="415" r="24" fill="url(#planet3)" filter="url(#planetGlow)"/>
+    
+    <!-- Middle row -->
+    <circle cx="230" cy="385" r="22" fill="url(#planet4)" filter="url(#planetGlow)"/>
+    <circle cx="280" cy="382" r="20" fill="url(#planet5)" filter="url(#planetGlow)"/>
+    
+    <!-- Top row (smaller planets) -->
+    <circle cx="214" cy="362" r="16" fill="url(#planet3)" filter="url(#planetGlow)"/>
+    <circle cx="260" cy="358" r="18" fill="url(#planet1)" filter="url(#planetGlow)"/>
+    <circle cx="300" cy="365" r="15" fill="url(#planet4)" filter="url(#planetGlow)"/>
   </g>
 
-  <!-- ═══ "COSMO" main title ═══ -->
-  <text
-    x="195" y="90"
-    font-family="'Arial Black', 'Impact', 'Franklin Gothic Heavy', sans-serif"
-    font-size="76" font-weight="900"
-    fill="url(#gold)"
-    text-anchor="middle"
-    letter-spacing="5"
-    stroke="#6b3d00" stroke-width="2" paint-order="stroke"
-    filter="url(#tglow)"
-  >COSMO</text>
+  <!-- Specular highlights on planets -->
+  <ellipse cx="192" cy="407" rx="8" ry="5" fill="white" opacity="0.25" transform="rotate(-20 192 407)"/>
+  <ellipse cx="248" cy="410" rx="10" ry="6" fill="white" opacity="0.2" transform="rotate(-25 248 410)"/>
+  <ellipse cx="304" cy="407" rx="7" ry="4" fill="white" opacity="0.25" transform="rotate(-20 304 407)"/>
 
-  <!-- ═══ "PLAYERS" subtitle ═══ -->
-  <text
-    x="195" y="132"
-    font-family="'Arial Black', 'Impact', 'Franklin Gothic Heavy', sans-serif"
-    font-size="36" font-weight="700"
-    fill="url(#blue)"
-    text-anchor="middle"
-    letter-spacing="14"
-    stroke="#072050" stroke-width="1.5" paint-order="stroke"
-  >PLAYERS</text>
+  <!-- Bowl rim highlight -->
+  <path d="M 150 360 Q 200 352 256 348 Q 312 352 362 360" 
+        fill="none" stroke="#4a3070" stroke-width="2" opacity="0.5"/>
 
-  <!-- Decorative separator line -->
-  <line x1="42" y1="99" x2="310" y2="99"
-    stroke="#4b90d5" stroke-width="1" opacity="0.28"/>
+  <!-- "COSMO" title -->
+  <text x="256" y="210" 
+        font-family="'Segoe UI Black', 'Arial Black', Impact, sans-serif" 
+        font-size="72" font-weight="900" 
+        fill="url(#cosmoText)" 
+        text-anchor="middle" 
+        letter-spacing="6"
+        filter="url(#glow)">
+    COSMO
+  </text>
+
+  <!-- "PLAYERS" subtitle -->
+  <text x="256" y="265" 
+        font-family="'Segoe UI Black', 'Arial Black', Impact, sans-serif" 
+        font-size="42" font-weight="800" 
+        fill="url(#playersText)" 
+        text-anchor="middle" 
+        letter-spacing="16">
+    PLAYERS
+  </text>
+
+  <!-- Decorative line under text -->
+  <line x1="120" y1="282" x2="392" y2="282" 
+        stroke="#2a1a4e" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="256" cy="282" r="3" fill="#ffd700" opacity="0.5"/>
+
+  <!-- Floating decorative planet (top right) -->
+  <g transform="translate(380 140)">
+    <circle r="18" fill="url(#planet5)" opacity="0.7"/>
+    <ellipse rx="22" ry="6" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.3" transform="rotate(-15)"/>
+    <ellipse cx="-5" cy="-5" rx="5" ry="3" fill="white" opacity="0.3"/>
+  </g>
+
+  <!-- Small decorative planet (top left) -->
+  <g transform="translate(100 130)">
+    <circle r="14" fill="url(#planet2)" opacity="0.6"/>
+    <ellipse cx="-3" cy="-4" rx="4" ry="2.5" fill="white" opacity="0.25"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="256" y="315" 
+        font-family="'Segoe UI', Arial, sans-serif" 
+        font-size="13" font-weight="500" 
+        fill="#5a4a7a" 
+        text-anchor="middle" 
+        letter-spacing="6">
+    PLANETS • MULTIPLAYER • MERGE
+  </text>
 </svg>
