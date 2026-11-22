@@ -1,59 +1,23 @@
 # luisjl.com
 
-Web personal de **Luis JL** — Desarrollador de Software.
+Web personal de **Luis JL**, desarrollador de software. Una sola página estática (`index.html`, sin dependencias ni
+compilación) con estilo neobrutalista: amarillo, bordes negros gruesos y sombras duras.
 
-## 📦 Añadir un proyecto
+Los juegos no se listan aquí: la web enlaza a [jlgamesdev.com](https://jlgamesdev.com), donde están todos.
 
-Los proyectos se definen en `projects.json` con la siguiente estructura:
+## Editar
 
-```json
-{
-  "title": "Nombre del proyecto",
-  "description": "Descripción breve de qué hace el proyecto, tecnologías, etc.",
-  "image": "https://ejemplo.com/imagen.jpg",
-  "tags": ["Angular", ".NET", "TypeScript"],
-  "links": [
-    { "type": "github", "url": "https://github.com/tu-usuario/repo" },
-    { "type": "web", "url": "https://tu-web.com" },
-    { "type": "steam", "url": "https://store.steampowered.com/app/123" }
-  ]
-}
-```
+- Textos y secciones: `index.html`. Los colores y tamaños están arriba, en las variables de `:root`.
+- Tecnologías: la lista `.chips` de `index.html`; los logos están en `assets/img/logos/`.
+- Avatar: SVG dibujado dentro de `index.html` (no se usa foto).
 
-### Tipos de link disponibles
+## Publicar
 
-| Tipo | Icono | Label |
-|------|-------|-------|
-| `steam` | Steam | Steam |
-| `github` | GitHub | GitHub |
-| `web` / `website` | 🌐 | Web |
-| `youtube` | YouTube | YouTube |
-| `docker` | Docker | Docker Hub |
-| `npm` | npm | npm |
-| `itchio` | Itch.io | Itch.io |
-| `twitter` | X | X |
-| `discord` | Discord | Discord |
-| `playstore` | Google Play | Google Play |
-| `appstore` | App Store | App Store |
-
-### Después de editar `projects.json`
-
-Por temas de CORS, los datos están embebidos en el HTML. Después de modificar `projects.json`, hay que copiar el array actualizado al `projectsData` en `index.html`. Busca esta sección:
-
-```js
-const projectsData = [];
-```
-
-Y sustitúyela por el contenido de `projects.json`.
-
-> 💡 **Alternativa**: Si prefieres que cargue automáticamente desde el JSON (funciona en GitHub Pages pero no en local con `file://`), cambia la función `loadProjects()` para que haga `fetch('projects.json')`.
-
-## 🚀 Despliegue en GitHub Pages
+GitHub Pages publica la rama `master` tal cual. El dominio `luisjl.com` está en el archivo `CNAME` y sus DNS en
+Cloudflare (registros de GitHub Pages en gris).
 
 ```bash
 git add -A
-git commit -m "mensaje descriptivo"
+git commit -m "mensaje"
 git push
 ```
-
-El dominio `luisjl.com` ya está configurado con GitHub Pages vía `CNAME`.

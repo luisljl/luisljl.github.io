@@ -1,78 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — Luis JL</title>
-  <meta name="description" content="Página no encontrada">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página no encontrada — Luis JL</title>
+  <meta name="theme-color" content="#ffe14d">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0a0a0f;
-      color: #f1f5f9;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-    }
-    .container { max-width: 500px; }
-    .error-code {
-      font-size: clamp(6rem, 15vw, 10rem);
-      font-weight: 900;
-      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    p {
-      color: #94a3b8;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 32px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
-      color: white;
-      transition: all 0.3s ease;
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 35px rgba(139, 92, 246, 0.35);
-    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; background: #ffe14d; color: #111; font: 500 1.0625rem/1.6 'Archivo', system-ui, sans-serif; }
+    .box { width: min(100%, 520px); background: #fffdf5; border: 3px solid #111; box-shadow: 12px 12px 0 #111; padding: clamp(24px, 6vw, 48px); text-align: center; }
+    h1 { font: 400 clamp(5rem, 22vw, 8rem)/0.85 'Archivo Black', 'Arial Black', sans-serif; margin: 0 0 12px; display: inline-block; background: #ff5d8f; border: 3px solid #111; padding: 0 0.12em 0.06em; transform: rotate(-3deg); }
+    p { margin: 16px 0 28px; }
+    a { display: inline-flex; align-items: center; min-height: 52px; padding: 14px 22px; font-weight: 700; text-decoration: none; color: #fffdf5; background: #111; border: 3px solid #111; box-shadow: 4px 4px 0 #ff5d8f; transition: transform 120ms ease, box-shadow 120ms ease; }
+    a:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #ff5d8f; }
+    a:active { transform: translate(4px, 4px); box-shadow: none; }
+    a:focus-visible { outline: 3px solid #111; outline-offset: 4px; }
+    @media (prefers-reduced-motion: reduce) { a { transition: none; } }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="error-code">404</div>
-    <h1>Página no encontrada</h1>
-    <p>Parece que te has perdido. El enlace que buscas no existe o ha sido movido.</p>
-    <a href="/" class="btn">
-      <i class="fa-solid fa-house"></i>
-      Volver al inicio
-    </a>
-  </div>
+  <main class="box">
+    <h1>404</h1>
+    <p>Esta página no existe o se ha movido.</p>
+    <a href="/">Volver al inicio</a>
+  </main>
 </body>
 </html>
