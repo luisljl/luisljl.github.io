@@ -1,0 +1,12 @@
+{
+  "game": {
+    "slug": "mates-and-crates",
+    "title": "Mates and Crates",
+    "status": "released",
+    "release": "10 de noviembre de 2026",
+    "tagline": "Roba cajas, ponlas en tu pad de crafteo y conviértelas en armas, vehículos y compañeros. Batallas por equipos en línea o contra bots: vuela el cuartel enemigo antes de que te vuelen el tuyo.",
+    "cover": "https://jlgamesdev.com/assets/games/mates-and-crates/cover.jpg",
+    "url": "https://jlgamesdev.com/es/mates-and-crates",
+    "steam": "https://store.steampowered.com/app/2848990/Mates_and_Crates/"
+  }
+}

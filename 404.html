@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Página no encontrada — Luis JL</title>
   <meta name="theme-color" content="#ffe14d">
+  <meta name="color-scheme" content="light dark">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +21,13 @@
     a:active { transform: translate(4px, 4px); box-shadow: none; }
     a:focus-visible { outline: 3px solid #111; outline-offset: 4px; }
     @media (prefers-reduced-motion: reduce) { a { transition: none; } }
+    @media (prefers-color-scheme: dark) {
+      body { background: #141414; color: #fffdf5; }
+      .box { background: #1f1f1f; border-color: #fffdf5; box-shadow: 12px 12px 0 #ffe14d; }
+      h1 { color: #111; }
+      a { color: #111; background: #ffe14d; border-color: #fffdf5; }
+      a:focus-visible { outline-color: #fffdf5; }
+    }
   </style>
 </head>
 <body>
